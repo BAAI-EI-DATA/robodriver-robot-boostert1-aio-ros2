@@ -34,9 +34,13 @@ class BoosterT1AioRos2RobotConfig(RobotConfig):
                 "leader_right_wrist_pitch": Motor(5, "robot_motor", norm_mode_body),
                 "leader_right_wrist_yaw": Motor(6, "robot_motor", norm_mode_body),
             },
-            "leader_head_pitch_yaw": {
-                "leader_head_pitch": Motor(1, "robot_motor", norm_mode_body),
-                "leader_head_yaw": Motor(2, "robot_motor", norm_mode_body),
+            "leader_head": {
+                "leader_head_x": Motor(1, "robot_motor", norm_mode_body),
+                "leader_head_y": Motor(2, "robot_motor", norm_mode_body),
+                "leader_head_z": Motor(3, "robot_motor", norm_mode_body),
+                "leader_head_roll": Motor(4, "robot_motor", norm_mode_body),
+                "leader_head_pitch": Motor(5, "robot_motor", norm_mode_body),
+                "leader_head_yaw": Motor(6, "robot_motor", norm_mode_body),
             },
             "leader_left_gripper": {  
                 "leader_left_gripper": Motor(1, "robot_motor", norm_mode_body),

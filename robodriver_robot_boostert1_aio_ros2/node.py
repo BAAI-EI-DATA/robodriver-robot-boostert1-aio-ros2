@@ -39,26 +39,26 @@ QOS_BEST_EFFORT = QoSProfile(
 NODE_CONFIG = {
     "leader_joint_topics": {
         "leader_left_wrist": {
-            "topic": "/robot_cmd/left_wrist/xyz_rpy",
+            "topic": "/vr/left_wrist/xyz_rpy",
             "msg": "Float32MultiArray",
             "len": 6
         },
         "leader_right_wrist": {
-            "topic": "/robot_cmd/right_wrist/xyz_rpy",
+            "topic": "/vr/right_wrist/xyz_rpy",
             "msg": "Float32MultiArray",
             "len": 6
         },
-        "leader_head_pitch_yaw": {
-            "topic": "/robot_cmd/head/pitch_yaw",
+        "leader_head": {
+            "topic": "/vr/head/xyz_rpy",
             "msg": "Float32MultiArray",
-            "len": 2
+            "len": 6
         },
         "leader_left_gripper": {
-            "topic": "/robot_cmd/left_gripper/pos",
+            "topic": "/vr/left_gripper",
             "msg": "Float32"
         },
         "leader_right_gripper": {
-            "topic": "/robot_cmd/right_gripper/pos",
+            "topic": "/vr/right_gripper",
             "msg": "Float32"
         }
     },
