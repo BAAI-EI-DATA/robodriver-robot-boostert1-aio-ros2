@@ -48,11 +48,11 @@ NODE_CONFIG = {
             "msg": "Float32MultiArray",
             "len": 6
         },
-        "leader_head": {
-            "topic": "/vr/head/xyz_rpy",
-            "msg": "Float32MultiArray",
-            "len": 6
-        },
+        # "leader_head": {
+        #     "topic": "/vr/head/xyz_rpy",
+        #     "msg": "Float32MultiArray",
+        #     "len": 6
+        # },
         "leader_left_gripper": {
             "topic": "/vr/left_gripper",
             "msg": "Float32"
