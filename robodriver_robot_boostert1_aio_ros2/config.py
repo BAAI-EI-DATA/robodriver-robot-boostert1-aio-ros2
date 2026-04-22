@@ -47,7 +47,19 @@ class BoosterT1AioRos2RobotConfig(RobotConfig):
             },
             "leader_right_gripper": {
                 "leader_right_gripper": Motor(1, "robot_motor", norm_mode_body),
-            },                  
+            },
+            "leader_dexhand": {
+                "left_thumb": Motor(1, "robot_motor", norm_mode_body),
+                "left_index": Motor(2, "robot_motor", norm_mode_body),
+                "left_middle": Motor(3, "robot_motor", norm_mode_body),
+                "left_ring": Motor(4, "robot_motor", norm_mode_body),
+                "left_little": Motor(5, "robot_motor", norm_mode_body),
+                "right_thumb": Motor(6, "robot_motor", norm_mode_body),
+                "right_index": Motor(7, "robot_motor", norm_mode_body),
+                "right_middle": Motor(8, "robot_motor", norm_mode_body),
+                "right_ring": Motor(9, "robot_motor", norm_mode_body),
+                "right_little": Motor(10, "robot_motor", norm_mode_body),
+            },
         }
     )
 

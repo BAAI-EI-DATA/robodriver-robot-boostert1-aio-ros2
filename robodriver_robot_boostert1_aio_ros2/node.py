@@ -60,6 +60,10 @@ NODE_CONFIG = {
         "leader_right_gripper": {
             "topic": "/vr/right_gripper",
             "msg": "Float32"
+        },
+        "leader_dexhand": {
+            "topic": "/dexhand_state",
+            "msg": "JointState"
         }
     },
 

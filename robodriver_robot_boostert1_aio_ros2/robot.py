@@ -348,17 +348,31 @@ class BoosterT1AioRos2Robot(Robot):
         # ---- 逐组件展开，然后逐 joint 填入 ----
         for comp_name, joints in self.leader_motors.items():
 
-            # node 中按组件名存放关节数组
-            vec = self.robot_ros2_node.recv_leader.get(comp_name)
-            if vec is None:
+            # node 中按组件名存放 leader 数据，可能是 vector，也可能是 JointState 展开的 dict
+            data = self.robot_ros2_node.recv_leader.get(comp_name)
+            if data is None:
                 continue
 
             joint_names = list(joints.keys())
 
+            if isinstance(data, dict):
+                for joint in joint_names:
+                    val = None
+                    if joint in data:
+                        val = data[joint]
+                    else:
+                        for k, v in data.items():
+                            if joint in k:
+                                val = v
+                                break
+                    if val is not None:
+                        act_dict[f"leader_{joint}.pos"] = float(val)
+                continue
+
             for idx, joint in enumerate(joint_names):
-                if idx >= len(vec):
+                if idx >= len(data):
                     break
-                act_dict[f"leader_{joint}.pos"] = float(vec[idx])
+                act_dict[f"leader_{joint}.pos"] = float(data[idx])
 
         dt_ms = (time.perf_counter() - start) * 1e3
         logger.debug(f"{self} read action: {dt_ms:.1f} ms")
@@ -390,4 +404,3 @@ class BoosterT1AioRos2Robot(Robot):
         self.robot_ros2_node.ros2_send(cleaned_action)
 
         return {f"{arm_motor}.pos": val for arm_motor, val in action.items()}
-
